@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/mditor.js"></script>
+</head>
+<body>
+<textarea name="" id="editor" cols="30" rows="10">
+</textarea>
+<input id="btn1" type="button" value="获取html">
+<input id="btn2" type="button" value="获取格式内容">
+<input type="button" value="插入图片">
+<script>
+    var ele_textarea = document.getElementById('editor');
+    //实例化Mditor
+    var editor = new mditor(ele_textarea);
+    $('#btn1').click(function () {
+        alert(editor.getHtml());
+    });
+    $('#btn2').click(function () {
+        alert(editor.getContent());
+    });
+    //获取转换后的html
+    //    editor.getHtml();
+
+    //获取markdown格式内容
+    //    editor.getContent();
+
+    //插入内容
+    //    editor.insert('**挤啊挤**')
+
+    //进入预览界面
+    //    editor.preview();
+
+    //返回编辑界面
+    //    editor.edit();
+</script>
+</body>
+</html>

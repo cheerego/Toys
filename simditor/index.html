@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta  charset="UTF-8">
+    <title></title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bower_components/simditor/styles/simditor.css"/>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/simple-module/lib/module.js"></script>
+    <script type="text/javascript" src="bower_components/simple-hotkeys/lib/hotkeys.js"></script>
+    <script type="text/javascript" src="bower_components/simple-uploader/lib/uploader.js"></script>
+    <script type="text/javascript" src="bower_components/simditor/lib/simditor.js"></script>
+</head>
+<body>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    <textarea id="editor" placeholder="Balabala" autofocus></textarea>
+    <input type="submit" value="Submit">
+    <input type="button" id="btn">
+</form>
+
+<script !src="">
+    var editor = new Simditor(
+            {
+                textarea: $('#editor'),
+                //optional options
+                upload: {
+                    url: '',
+                    params: null,
+                    fileKey: 'upload_file',
+                    connectionCount: 3,
+                    leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+                }
+            });
+
+    $('#btn').click(function () {
+        alert(editor.getValue());
+    });
+</script>
+</body>
+</html>
