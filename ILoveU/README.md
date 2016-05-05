@@ -1,4 +1,6 @@
 # 这是一段C语言程序
+这段程序来源于
+[美剧硅谷第三季第一集神秘代码写的是什么？](http://example.net/)
 ```c
 #include <stdio.h>
 #include <stdlib.h>
