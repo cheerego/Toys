@@ -1,13 +1,13 @@
-#探究Laravel的dd方法
-######what is dd?
+# 探究Laravel的dd方法
+###### what is dd?
 * 是laravel封装的一个函数,方法
 * 功能类似于php原生的var_dump和print_r,对数据进行打印输出
 * 只是对var_dump和print_r进行了扩展,添加了一些样式和一个折叠效果
 
-##focus source code:
-####1.哪里定义了dd?
+## focus source code:
+#### 1.哪里定义了dd?
 >vendor/laravel/framework/src/Illuminate/Support/helpers.php
-####2.dd写了什么?
+#### 2.dd写了什么?
 ```PHP
 if (! function_exists('dd')) {
    /**
@@ -27,17 +27,17 @@ if (! function_exists('dd')) {
 }
 
 ```
-####3.这段代码的功能
+#### 3.这段代码的功能
 * 判断函数是否定义
 * 如果方法不存在就定义
 * func_get_args得到dd的参数
 * 然后是用array_map遍历执行(new _**`Dumper`**_)->_**`dump`**_($x)
 
-##What is the class Dumper and function dump
-######1.类的位置:
+## What is the class Dumper and function dump
+###### 1.类的位置:
 >vendor/laravel/framework/src/Illuminate/Support/Debug/Dumper.php
 
-######2.class Dumper 写了什么
+###### 2.class Dumper 写了什么
 ```PHP
 <?php
 namespace Illuminate\Support\Debug;
@@ -66,15 +66,15 @@ class Dumper
     }
 }
 ```
-######3.dump方法在干什么?
+###### 3.dump方法在干什么?
 * Symfony的两个组件防止重复造轮子
 * 判断CliDumper这个类是否存在,如果不存在就直接var_dump进行屏幕打印
 * $dumper = ('cli' === PHP_SAPI ? new CliDumper : new HtmlDumper);判断是CLI模式还是网页环境,然后实例化相应的对象.
 * 现在的环境是HtmlDumper
-##What is class HtmlDumper?
-######1.where is the class HtmlDumper
+## What is class HtmlDumper?
+###### 1.where is the class HtmlDumper
 >vendor/laravel/framework/src/Illuminate/Support/Debug/HtmlDumper.php:2
-######2.Class HtmlDumper Content
+###### 2.Class HtmlDumper Content
 ```PHP
 <?php
 
@@ -111,10 +111,10 @@ class HtmlDumper extends SymfonyHtmlDumper
 * 仅仅是定义了一下样式
 * 而且没有定义dump方法,继承至SymfonyHtmlDumper,所以需要在父类中查看dump
 
-##What is SymfonyHtmlDumper
-######1.Where is SymfonyHtmlDumper?
+## What is SymfonyHtmlDumper
+###### 1.Where is SymfonyHtmlDumper?
 >vendor/symfony/var-dumper/Dumper/HtmlDumper.php:2
-######2.what is the class content?
+###### 2.what is the class content?
 ```PHP
 class HtmlDumper extends CliDumper
 {
@@ -159,7 +159,7 @@ class HtmlDumper extends CliDumper
 * 里面还有一些乱七八招的js代码
 * CliDumper还进行了终端环境的检测
 
-#到这里我已经写不下去了
+# 到这里我已经写不下去了
                     function dd()
                           |  使用Dumper类的dump方法
                     class Dumper
