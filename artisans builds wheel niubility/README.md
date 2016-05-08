@@ -26,18 +26,21 @@ if (! function_exists('dd')) {
   }
 }
 
-```
+```  
+
 #### 3.这段代码的功能
 * 判断函数是否定义
 * 如果方法不存在就定义
 * func_get_args得到dd的参数
-* 然后是用array_map遍历执行(new _**`Dumper`**_)->_**`dump`**_($x)
+* 然后是用array_map遍历执行(new _**`Dumper`**_)->_**`dump`**_($x)  
 
-## What is the class Dumper and function dump
+## What is the class Dumper and function dump  
+
 ###### 1.类的位置:
 >vendor/laravel/framework/src/Illuminate/Support/Debug/Dumper.php
 
-###### 2.class Dumper 写了什么
+###### 2.class Dumper 写了什么  
+
 ```PHP
 <?php
 namespace Illuminate\Support\Debug;
@@ -70,10 +73,13 @@ class Dumper
 * Symfony的两个组件防止重复造轮子
 * 判断CliDumper这个类是否存在,如果不存在就直接var_dump进行屏幕打印
 * $dumper = ('cli' === PHP_SAPI ? new CliDumper : new HtmlDumper);判断是CLI模式还是网页环境,然后实例化相应的对象.
-* 现在的环境是HtmlDumper
-## What is class HtmlDumper?
+* 现在的环境是HtmlDumper  
+* 
+## What is class HtmlDumper?  
+
 ###### 1.where is the class HtmlDumper
->vendor/laravel/framework/src/Illuminate/Support/Debug/HtmlDumper.php:2
+>vendor/laravel/framework/src/Illuminate/Support/Debug/HtmlDumper.php:2  
+
 ###### 2.Class HtmlDumper Content
 ```PHP
 <?php
