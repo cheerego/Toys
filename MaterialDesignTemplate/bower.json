@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "jquery": "^2.2.3",
-    "bootstrap-material-design": "^0.5.9"
+    "bootstrap-material-design": "^0.5.9",
+    "snackbarjs": "https://github.com/FezVrasta/snackbarjs.git#^1.1.0"
   }
 }
